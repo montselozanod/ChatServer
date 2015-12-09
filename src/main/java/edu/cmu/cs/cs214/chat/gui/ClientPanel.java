@@ -202,12 +202,15 @@ public class ClientPanel extends JPanel implements ClientChangeListener {
         // Formatter for the date. See link you want to change the output format
         // https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
         // Usage: dateFormatter.format(date) -> String
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("HH:mm:ss Z");
-
+        
         // TODO: Make the server show the timestamp of the received message.
         // Example output: [15:21:40 -0400] Person: Some message...
 
-        String newText = String.format(" %s: %s%n", msg.getSender(),
+	SimpleDateFormat dateFormatter = new SimpleDateFormat("HH:mm:ss Z");
+        String dateString = dateFormatter.format(msg.getTimestamp());
+        
+	
+        String newText = String.format("[%s] %s: %s%n", dateString, msg.getSender(),
                 msg.getContent());
         this.chatArea.append(newText);
         chatArea.setCaretPosition(chatArea.getDocument().getLength());
