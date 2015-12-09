@@ -197,6 +197,7 @@ public class ClientPanel extends JPanel implements ClientChangeListener {
      * lang.String)
      */
     @Override
+
     public void messageReceived(Message msg) {
 
         // TODO: Make the server show the timestamp of the received message.

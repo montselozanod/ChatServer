@@ -167,6 +167,7 @@ public class ChatServerImpl extends Thread implements ChatServer {
         }
 
 
+
         // TODO: Notify all clients when a new client joins the chat server.
         // This probably is made easy with a call back for when a client joins.
 
@@ -180,6 +181,10 @@ public class ChatServerImpl extends Thread implements ChatServer {
          *            Message sent by the client
          */
         private void onNewMessage(Socket from, Message msg) {
+        	// TODO: Add the server timestamp to the message received. Note:
+        	// Message#setServerTimestamp was created for you in the Message
+        	// class.
+        	
             // Synchronize because we are iterating through all clients in a
             // thread
             synchronized (clients) {
